@@ -26,12 +26,14 @@ pipeline {
         
         
        
-        stage('Run Application') {
-            steps {
-                // Start the JAR application
-                sh 'java -jar target/MyMavenJenkinsPipeline-1.0-SNAPSHOT.jar'
-            }
-        }
+        stage('Deploy to Tomcat') {
+    steps {
+        sh '''
+            cp target/MyMavenWebApp01.war /opt/tomcat/webapps/
+        '''
+    }
+}
+
 
         
     }
